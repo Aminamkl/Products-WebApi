@@ -11,11 +11,26 @@
 
 ## La création des classes principales
   + Product
+    ```java
+    
+    ```
   + Category
+    ```java
+    
+    ```
   + ProductRestController
+    ```java
+    
+    ```
   + CategoryRestController
+    ```java
+    
+    ```
   
   
 ## L'exécution du projet
    + Main
+     ```java
+    
+    ```
    + Résultat d'exécution
