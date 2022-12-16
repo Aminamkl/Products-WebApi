@@ -1,0 +1,6 @@
+﻿### 
+GET https://localhost:7267/api/v1/products
+
+### Please I suggest that you continue the work here if you want, then install entity framework and  create entites 
+##then add MySQL database configuration, create migrations then apply them on the database,
+## i will see the videos to inderstand then i will continue the work, okay perfect, just  ithink the teacher worked with MS SQL Server,  ithink it will be heavy to install, you can work with MySQL
