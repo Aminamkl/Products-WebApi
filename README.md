@@ -12,11 +12,24 @@
 ## La création des classes principales
   + Product
     ```java
+    public class Product
+     {
+    public int ProductId { get; set; }
+    public string Designation { get; set; }
+    public double Price { get; set; }
     
+    public int CategoryID { get; set; }
+    
+    }
     ```
   + Category
     ```java
-    
+      public class Category
+    {
+    public  int CategoryID { get;  set; }
+    public  string Name { get;  set; }
+    public virtual ICollection<Product> Products { get; set; }
+    }
     ```
   + ProductRestController
     ```java
@@ -29,8 +42,4 @@
   
   
 ## L'exécution du projet
-   + Main
-     ```java
-    
-     ```
-   + Résultat d'exécution
+  
