@@ -1,5 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
-using Products_WebApi.Models;
+using Microsoft.EntityFrameworkCore;
+using Products_WebApi.Data;
+using Products_WebApi.Dtos;
+using Products_WebApi.Entities;
 
 namespace Products_WebApi.Controllers;
 
@@ -7,17 +10,33 @@ namespace Products_WebApi.Controllers;
 [Route("/api/v1/products")]
 public class ProductsController : ControllerBase
 {
-   
+    private readonly DBContext DBContext;
 
-    [HttpGet(Name = "")]
-    public IEnumerable<Product> Get()
+    public ProductsController( DBContext DBContext)
     {
-        Product product1 = new Product();
-        product1.ProductId = 1;
-        product1.Price = 100;
-         
-        product1.CategoryName = "Category 1";
+        this.DBContext = DBContext;
+    }
+    
+    
+    [HttpGet(Name = "")]
+    public async Task<ActionResult<List<ProductDto>>> Get()
+    {
+        var List = await DBContext.Products.Select(
+            s => new ProductDto()
+            {
+                ProductId = s.ProductId,
+                Designation = s.Designation,
+                Price = s.Price
+            }
+        ).ToListAsync();
 
-        return new List<Product> { product1, product1 };
+        if (List.Count < 0)
+        {
+            return NotFound();
+        }
+        else
+        {
+            return List;
+        }
     }
 }
