@@ -7,6 +7,7 @@ namespace Products_WebApi.Data;
     public partial class DBContext : DbContext
     {
         protected readonly IConfiguration Configuration;
+      
 
         public DBContext(IConfiguration configuration)
         {
